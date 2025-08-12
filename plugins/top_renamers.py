@@ -37,7 +37,6 @@ async def top_renamers(bot, message: Message):
     await message.reply_photo(
         photo=THUMBNAIL_URL,
         caption="\n".join(lines),
-        parse_mode="html",
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton("🔄 Refresh", callback_data="refresh_tops")]
         ])
