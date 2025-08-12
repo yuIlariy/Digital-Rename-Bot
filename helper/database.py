@@ -255,24 +255,6 @@ class Database:
         banned_users = self.col.find({'ban_status.is_banned': True})
         return banned_users
 
-    async def get_top_renamers(self, limit: int = 20):
-        cursor = self.col.find(
-            {"used_limit": {"$gt": 0}},
-            {"_id": 1, "used_limit": 1, "total_upload_size": 1}
-        ).sort("used_limit", -1).limit(limit)
-
-        users = []
-        async for user in cursor:
-            user_id = user["_id"]
-            tg_user = await self.col.find_one({"_id": user_id}, {"username": 1})
-            users.append({
-                "user_id": user_id,
-                "username": tg_user.get("username", None),
-                "rename_count": user.get("used_limit", 0),
-                "total_upload_size": user.get("total_upload_size", 0)
-            })
-        return users
-    
 digital_botz = Database(Config.DB_URL, Config.DB_NAME)
 
 # Rkn Developer 
