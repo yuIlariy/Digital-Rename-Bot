@@ -254,6 +254,17 @@ class Database:
     async def get_all_banned_users(self):
         banned_users = self.col.find({'ban_status.is_banned': True})
         return banned_users
+
+    async def get_top_renamers(limit: int = 20):
+        users = []
+        async for user in digital_botz.find().sort("rename_count", -1).limit(limit):
+            users.append({
+                "username": user.get("username"),
+                "user_id": user["_id"],
+                "rename_count": user.get("rename_count", 0),
+                "total_upload_size": user.get("total_upload_size", 0)
+            })
+        return users
         
 digital_botz = Database(Config.DB_URL, Config.DB_NAME)
 
