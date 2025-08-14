@@ -239,12 +239,13 @@ Exᴀᴍᴩʟᴇ:- `/set_prefix @Digital_Botz`
 
 ┃    🔋 ꜱᴛᴀᴛᴜꜱ: {0}%
 
-┃    🚀 ꜱᴘᴇᴇᴅ: {3}/s
+┃    {3} ꜱᴘᴇᴇᴅ: {5}/s
 
 ┃    ⏰ ᴇᴛᴀ: {4}
 
 ╰━━━━━━━━━━━━━━━━➣
 </b>"""
+
 
 # Rkn Developer 
 # Don't Remove Credit 😔
