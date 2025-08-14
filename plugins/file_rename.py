@@ -68,6 +68,18 @@ async def rename_start(client, message):
     dcid = FileId.decode(rkn_file.file_id).dc_id
     extension_type = mime_type.split('/')[0]
 
+    async def send_media_info():
+        text = (
+            f"**__📁 ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n"
+            f"🔹 ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n"
+            f"🔸 ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n"
+            f"📏 ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n"
+            f"🧬 ᴍɪᴍᴇ ᴛʏᴘᴇ: `{mime_type}`\n"
+            f"🆔 ᴅᴄ ɪᴅ: `{dcid}`\n\n"
+            f"✏️ ᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛᴏ ᴛʜɪs ᴍᴇssᴀɢᴇ...__**"
+        )
+        await message.reply_text(text, reply_to_message_id=message.id, reply_markup=ForceReply(True))
+
     if client.premium and client.uploadlimit:
         await digital_botz.reset_uploadlimit_access(user_id)
         user_data = await digital_botz.get_user_data(user_id)
@@ -76,50 +88,40 @@ async def rename_start(client, message):
         remain = int(limit) - int(used)
         used_percentage = int(used) / int(limit) * 100
         if remain < int(rkn_file.file_size):
-            return await message.reply_text(f"{used_percentage:.2f}% Of Daily Upload Limit {humanbytes(limit)}.\n\n Media Size: {filesize}\n Your Used Daily Limit {humanbytes(used)}\n\nYou have only **{humanbytes(remain)}** Data.\nPlease, Buy Premium Plan s.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🪪 Uᴘɢʀᴀᴅᴇ", callback_data="plans")]]))
-         
-	    
+            return await message.reply_text(
+                f"{used_percentage:.2f}% Of Daily Upload Limit {humanbytes(limit)}.\n\n"
+                f"📦 Media Size: {filesize}\n"
+                f"📊 Your Used Daily Limit: {humanbytes(used)}\n\n"
+                f"You have only **{humanbytes(remain)}** left.\nPlease, Buy Premium Plan.",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🪪 Uᴘɢʀᴀᴅᴇ", callback_data="plans")]])
+            )
+
     if await digital_botz.has_premium_access(user_id) and client.premium:
         if not Config.STRING_SESSION:
             if rkn_file.file_size > 2000 * 1024 * 1024:
-                 return await message.reply_text("Sᴏʀʀy Bʀᴏ Tʜɪꜱ Bᴏᴛ Iꜱ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ Fɪʟᴇꜱ Bɪɢɢᴇʀ Tʜᴀɴ 2Gʙ+")
+                return await message.reply_text("⚠️ Sᴏʀʀy, Tʜɪꜱ Bᴏᴛ Dᴏᴇꜱɴ'ᴛ Sᴜᴩᴩᴏʀᴛ Uᴩʟᴏᴀᴅɪɴɢ ꜰɪʟᴇꜱ ʙɪɢɢᴇʀ ᴛʜᴀɴ 2Gʙ+")
 
         try:
-            await message.reply_text(
-            text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
-	    reply_to_message_id=message.id,  
-	    reply_markup=ForceReply(True)
-        )       
+            await send_media_info()
             await sleep(30)
         except FloodWait as e:
             await sleep(e.value)
-            await message.reply_text(
-            text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
-	    reply_to_message_id=message.id,  
-	    reply_markup=ForceReply(True)
-        )
+            await send_media_info()
         except:
             pass
     else:
         if rkn_file.file_size > 2000 * 1024 * 1024 and client.premium:
-            return await message.reply_text("If you want to rename 4GB+ files then you will have to buy premium. /plans")
+            return await message.reply_text("‼️ If you want to rename 2GB+ files, you’ll need to buy premium. /plans")
 
         try:
-            await message.reply_text(
-            text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
-	    reply_to_message_id=message.id,  
-	    reply_markup=ForceReply(True)
-        )       
+            await send_media_info()
             await sleep(30)
         except FloodWait as e:
             await sleep(e.value)
-            await message.reply_text(
-            text=f"**__ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n◈ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n◈ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n◈ ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n◈ ᴍɪᴍᴇ ᴛʏᴇᴩ: `{mime_type}`\n◈ ᴅᴄ ɪᴅ: `{dcid}`\n\nᴘʟᴇᴀsᴇ ᴇɴᴛᴇʀ ᴛʜᴇ ɴᴇᴡ ғɪʟᴇɴᴀᴍᴇ ᴡɪᴛʜ ᴇxᴛᴇɴsɪᴏɴ ᴀɴᴅ ʀᴇᴘʟʏ ᴛʜɪs ᴍᴇssᴀɢᴇ....__**",
-	    reply_to_message_id=message.id,  
-	    reply_markup=ForceReply(True)
-        )
+            await send_media_info()
         except:
             pass
+
 
 @Client.on_message(filters.private & filters.reply)
 async def refunc(client, message):
