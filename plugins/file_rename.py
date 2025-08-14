@@ -67,6 +67,7 @@ async def rename_start(client, message):
     mime_type = rkn_file.mime_type
     dcid = FileId.decode(rkn_file.file_id).dc_id
     extension_type = mime_type.split('/')[0]
+    file_ext = filename.split('.')[-1].lower()
 
     FILE_TYPE_EMOJIS = {
         "audio": "🎵",
@@ -80,8 +81,54 @@ async def rename_start(client, message):
         "default": "📁"
     }
 
+    EXTENSION_EMOJIS = {
+        "zip": "🗜️",
+        "rar": "📚",
+        "7z": "🧳",
+        "tar": "🗂️",
+        "gz": "🧪",
+        "xz": "🧬",
+        "pdf": "📕",
+        "apk": "🤖",
+        "exe": "💻",
+        "msi": "🛠️",
+        "doc": "📄",
+        "docx": "📄",
+        "ppt": "📊",
+        "pptx": "📊",
+        "xls": "📈",
+        "xlsx": "📈",
+        "csv": "📑",
+        "txt": "📝",
+        "json": "🧾",
+        "xml": "🧬",
+        "html": "🌐",
+        "py": "🐍",
+        "js": "📜", 
+        "ts": "📜",
+        "java": "☕",
+        "c": "🔧",
+        "cpp": "🔩",
+        "mp3": "🎶",
+        "wav": "🔊",
+        "flac": "🎼",
+        "mp4": "🎥",
+        "mkv": "📽️",
+        "mov": "🎞️",
+        "webm": "🌐",
+        "jpg": "🖼️",
+        "jpeg": "🖼️",
+        "png": "🖼️",
+        "gif": "🌀",
+        "svg": "📐",
+        "ttf": "🔤",
+        "otf": "🔤",
+        "woff": "🔤",
+        "eot": "🔤"
+    }
+
     async def send_media_info():
-        emoji = FILE_TYPE_EMOJIS.get(extension_type, FILE_TYPE_EMOJIS["default"])
+        emoji = EXTENSION_EMOJIS.get(file_ext) or FILE_TYPE_EMOJIS.get(extension_type, FILE_TYPE_EMOJIS["default"])
         text = (
             f"**__{emoji} ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n"
             f"🗃️ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n"
