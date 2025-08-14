@@ -68,11 +68,24 @@ async def rename_start(client, message):
     dcid = FileId.decode(rkn_file.file_id).dc_id
     extension_type = mime_type.split('/')[0]
 
+    FILE_TYPE_EMOJIS = {
+        "audio": "🎵",
+        "video": "🎬",
+        "image": "🖼️",
+        "application": "📦",
+        "text": "📄",
+        "font": "🔤",
+        "message": "💬",
+        "multipart": "🧩",
+        "default": "📁"
+    }
+
     async def send_media_info():
+        emoji = FILE_TYPE_EMOJIS.get(extension_type, FILE_TYPE_EMOJIS["default"])
         text = (
-            f"**__📁 ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n"
-            f"🔹 ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n"
-            f"🔸 ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n"
+            f"**__{emoji} ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n"
+            f"🗃️ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n"
+            f"🏷️ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n"
             f"📏 ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n"
             f"🧬 ᴍɪᴍᴇ ᴛʏᴘᴇ: `{mime_type}`\n"
             f"🆔 ᴅᴄ ɪᴅ: `{dcid}`\n\n"
@@ -111,7 +124,7 @@ async def rename_start(client, message):
             pass
     else:
         if rkn_file.file_size > 2000 * 1024 * 1024 and client.premium:
-            return await message.reply_text("‼️ If you want to rename 2GB+ files, you’ll need to buy premium. /plans")
+            return await message.reply_text("‼️Hi, If you want to rename 2GB+ files, you’ll need to buy premium. See /plans")
 
         try:
             await send_media_info()
