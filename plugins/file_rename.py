@@ -52,8 +52,8 @@ from asyncio import sleep
 import os, time, asyncio
 
 
-UPLOAD_TEXT = """Uploading Started...."""
-DOWNLOAD_TEXT = """Download Started..."""
+UPLOAD_TEXT = """📤 Uploading Started...."""
+DOWNLOAD_TEXT = """📥 Download Started..."""
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
 
@@ -153,7 +153,7 @@ async def refunc(client, message):
 
 @Client.on_callback_query(filters.regex("upload"))
 async def doc(bot, update):
-    rkn_processing = await update.message.edit("`Processing...`")
+    rkn_processing = await update.message.edit("`☄️ Processing...`")
 	
     # Creating Directory for Metadata
     if not os.path.isdir("Metadata"):
@@ -181,7 +181,7 @@ async def doc(bot, update):
     
     metadata_path = f"Metadata/{new_filename}"    
 
-    await rkn_processing.edit("`Try To Download....`")
+    await rkn_processing.edit("`☄️Trying To Download....`")
     if bot.premium and bot.uploadlimit:
         limit = user_data.get('uploadlimit', 0)
         used = user_data.get('used_limit', 0)
@@ -207,7 +207,7 @@ async def doc(bot, update):
                 print("Metadata Added.....")
         await rkn_processing.edit("**Metadata added to the file successfully ✅**\n\n**Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....**")
     else:
-        await rkn_processing.edit("`Try To Uploading....`")
+        await rkn_processing.edit("`☄️ Trying To Upload....`")
 	    
     duration = 0
     try:
@@ -337,7 +337,7 @@ async def doc(bot, update):
 # please give credit 🙏🥲
 		    
     await remove_path(ph_path, file_path, dl_path, metadata_path)
-    return await rkn_processing.edit("Uploaded Successfully....")
+    return await rkn_processing.edit("🎈 Uploaded Successfully....")
     
 #@RknDeveloper
 #✅ Team-RknDeveloper
