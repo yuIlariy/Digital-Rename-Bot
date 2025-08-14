@@ -41,10 +41,11 @@ def get_speed_icon(speed_bps):
     speed_mbps = speed_bps / (1024 * 1024)
     if speed_mbps < 7:
         return "🐢"
-    elif 8 <= speed_mbps <= 11:
+    elif speed_mbps < 11:
         return "🚀"
     else:
         return "🛸"
+
 
 async def progress_for_pyrogram(current, total, ud_type, message, start):
     now = time.time()
