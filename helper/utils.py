@@ -37,12 +37,22 @@ from config import Config, rkn
 # pyrogram imports
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+def get_speed_icon(speed_bps):
+    speed_mbps = speed_bps / (1024 * 1024)
+    if speed_mbps < 7:
+        return "🐢"
+    elif 8 <= speed_mbps <= 11:
+        return "🚀"
+    else:
+        return "🛸"
+
 async def progress_for_pyrogram(current, total, ud_type, message, start):
     now = time.time()
     diff = now - start
     if round(diff % 5.00) == 0 or current == total:        
         percentage = current * 100 / total
         speed = current / diff
+        speed_icon = get_speed_icon(speed)
         elapsed_time = round(diff) * 1000
         time_to_completion = round((total - current) / speed) * 1000
         estimated_total_time = elapsed_time + time_to_completion
@@ -58,13 +68,13 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
-            humanbytes(speed),            
+            f"{speed_icon} {humanbytes(speed)}",            
             estimated_total_time if estimated_total_time != '' else "0 s"
         )
         try:
             await message.edit(
                 text=f"{ud_type}\n\n{tmp}",               
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲𝙴𝙻 ✖️", callback_data="close")]])                                               
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲ᴇʟ ✖️", callback_data="close")]])                                               
             )
         except:
             pass
@@ -79,7 +89,6 @@ def humanbytes(size):
         size /= power
         n += 1
     return str(round(size, 2)) + " " + Dic_powerN[n] + 'ʙ'
-
 
 def TimeFormatter(milliseconds: int) -> str:
     seconds, milliseconds = divmod(int(milliseconds), 1000)
@@ -195,6 +204,8 @@ def metadata_text(metadata_text):
             subtitle_title = f[len("change-subtitle-title"):].strip()
 
     return author, title, video_title, audio_title, subtitle_title
+
+
 
 # (c) @RknDeveloperr
 # Rkn Developer 
