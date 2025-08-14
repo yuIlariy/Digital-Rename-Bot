@@ -82,49 +82,16 @@ async def rename_start(client, message):
     }
 
     EXTENSION_EMOJIS = {
-        "zip": "🗜️",
-        "rar": "📚",
-        "7z": "🧳",
-        "tar": "🗂️",
-        "gz": "🧪",
-        "xz": "🧬",
-        "pdf": "📕",
-        "apk": "🤖",
-        "exe": "💻",
-        "msi": "🛠️",
-        "doc": "📄",
-        "docx": "📄",
-        "ppt": "📊",
-        "pptx": "📊",
-        "xls": "📈",
-        "xlsx": "📈",
-        "csv": "📑",
-        "txt": "📝",
-        "json": "🧾",
-        "xml": "🧬",
-        "html": "🌐",
-        "py": "🐍",
-        "js": "📜", 
-        "ts": "📜",
-        "java": "☕",
-        "c": "🔧",
-        "cpp": "🔩",
-        "mp3": "🎶",
-        "wav": "🔊",
-        "flac": "🎼",
-        "mp4": "🎥",
-        "mkv": "📽️",
-        "mov": "🎞️",
-        "webm": "🌐",
-        "jpg": "🖼️",
-        "jpeg": "🖼️",
-        "png": "🖼️",
-        "gif": "🌀",
-        "svg": "📐",
-        "ttf": "🔤",
-        "otf": "🔤",
-        "woff": "🔤",
-        "eot": "🔤"
+        "zip": "🗜️", "rar": "📚", "7z": "🧳", "tar": "🗂️", "gz": "🧪", "xz": "🧬",
+        "pdf": "📕", "apk": "🤖", "exe": "💻", "msi": "🛠️",
+        "doc": "📄", "docx": "📄", "ppt": "📊", "pptx": "📊",
+        "xls": "📈", "xlsx": "📈", "csv": "📑", "txt": "📝",
+        "json": "🧾", "xml": "🧬", "html": "🌐",
+        "py": "🐍", "js": "📜", "ts": "📜", "java": "☕", "c": "🔧", "cpp": "🔩",
+        "mp3": "🎶", "wav": "🔊", "flac": "🎼",
+        "mp4": "🎥", "mkv": "📽️", "mov": "🎞️", "webm": "🌐",
+        "jpg": "🖼️", "jpeg": "🖼️", "png": "🖼️", "gif": "🌀", "svg": "📐",
+        "ttf": "🔤", "otf": "🔤", "woff": "🔤", "eot": "🔤"
     }
 
     async def send_media_info():
@@ -132,7 +99,7 @@ async def rename_start(client, message):
         text = (
             f"**__{emoji} ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n"
             f"🗃️ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n"
-            f"🏷️ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n"
+            f"🏷️ ᴇxᴛᴇɴꜱɪᴏɴ: `{file_ext.upper()}`\n"
             f"📏 ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n"
             f"🧬 ᴍɪᴍᴇ ᴛʏᴘᴇ: `{mime_type}`\n"
             f"🆔 ᴅᴄ ɪᴅ: `{dcid}`\n\n"
