@@ -32,7 +32,7 @@ License Link : https://github.com/DigitalBotz/Digital-Rename-Bot/blob/main/LICEN
 
 # extra imports
 import math, time, re, datetime, pytz, os
-from config import Config, rkn 
+from config import Config, rkn
 
 # pyrogram imports
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
@@ -49,7 +49,7 @@ def get_speed_icon(speed_bps):
 async def progress_for_pyrogram(current, total, ud_type, message, start):
     now = time.time()
     diff = now - start
-    if round(diff % 5.00) == 0 or current == total:        
+    if round(diff % 5.00) == 0 or current == total:
         percentage = current * 100 / total
         speed = current / diff
         speed_icon = get_speed_icon(speed)
@@ -60,26 +60,31 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
         elapsed_time = TimeFormatter(milliseconds=elapsed_time)
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
-        progress = "{0}{1}".format(
-            ''.join(["▣" for i in range(math.floor(percentage / 5))]),
-            ''.join(["▢" for i in range(20 - math.floor(percentage / 5))])
-        )            
-        tmp = progress + rkn.RKN_PROGRESS.format( 
+        progress_bar = "{0}{1}".format(
+            ''.join(["▣" for _ in range(math.floor(percentage / 5))]),
+            ''.join(["▢" for _ in range(20 - math.floor(percentage / 5))])
+        )
+
+        tmp = progress_bar + rkn.RKN_PROGRESS.format(
             round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
-            f"{speed_icon} {humanbytes(speed)}",            
-            estimated_total_time if estimated_total_time != '' else "0 s"
+            speed_icon,
+            estimated_total_time,
+            humanbytes(speed)
         )
+
         try:
             await message.edit(
-                text=f"{ud_type}\n\n{tmp}",               
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲ᴇʟ ✖️", callback_data="close")]])                                               
+                text=f"{ud_type}\n\n{tmp}",
+                reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton("✖️ 𝙲𝙰𝙽𝙲ᴇʟ ✖️", callback_data="close")]]
+                )
             )
         except:
             pass
 
-def humanbytes(size):    
+def humanbytes(size):
     if not size:
         return ""
     power = 2**10
@@ -100,14 +105,14 @@ def TimeFormatter(milliseconds: int) -> str:
         ((str(minutes) + "ᴍ, ") if minutes else "") + \
         ((str(seconds) + "ꜱ, ") if seconds else "") + \
         ((str(milliseconds) + "ᴍꜱ, ") if milliseconds else "")
-    return tmp[:-2] 
+    return tmp[:-2]
 
 def convert(seconds):
     seconds = seconds % (24 * 3600)
     hour = seconds // 3600
     seconds %= 3600
     minutes = seconds // 60
-    seconds %= 60      
+    seconds %= 60
     return "%d:%02d:%02d" % (hour, minutes, seconds)
 
 async def send_log(b, u):
@@ -139,7 +144,7 @@ async def get_seconds_first(time_string):
 
     for i in range(0, len(parts), 2):
         value = int(parts[i])
-        unit = parts[i+1].rstrip('s')  # Remove 's' from unit
+        unit = parts[i+1].rstrip('s')
         total_seconds += value * conversion_factors.get(unit, 0)
 
     return total_seconds
@@ -166,14 +171,14 @@ async def get_seconds(time_string):
 def add_prefix_suffix(input_string, prefix='', suffix=''):
     pattern = r'(?P<filename>.*?)(\.\w+)?$'
     match = re.search(pattern, input_string)
-    
+
     if match:
         filename = match.group('filename')
         extension = match.group(2) or ''
-        
+
         prefix_str = f"{prefix} " if prefix else ""
         suffix_str = f" {suffix}" if suffix else ""
-        
+
         return f"{prefix_str}{filename}{suffix_str}{extension}"
     else:
         return input_string
