@@ -168,7 +168,7 @@ async def refunc(client, message):
 
 @Client.on_callback_query(filters.regex("upload"))
 async def doc(bot, update):
-    rkn_processing = await update.message.edit("`☄️ Processing...`")
+    rkn_processing = await update.message.edit("`☄️Processing...`")
 	
     # Creating Directory for Metadata
     if not os.path.isdir("Metadata"):
@@ -222,7 +222,7 @@ async def doc(bot, update):
                 print("Metadata Added.....")
         await rkn_processing.edit("**Metadata added to the file successfully ✅**\n\n**Tʀyɪɴɢ Tᴏ Uᴩʟᴏᴀᴅɪɴɢ....**")
     else:
-        await rkn_processing.edit("`☄️ Trying To Upload....`")
+        await rkn_processing.edit("`☄️Trying To Upload....`")
 	    
     duration = 0
     try:
