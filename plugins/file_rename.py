@@ -84,7 +84,7 @@ async def rename_start(client, message):
         emoji = FILE_TYPE_EMOJIS.get(extension_type, FILE_TYPE_EMOJIS["default"])
         text = (
             f"**__{emoji} ᴍᴇᴅɪᴀ ɪɴꜰᴏ:\n\n"
-            f"🗃️ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n"
+            f"🗃️ ᴏʟᴅ ꜰɪʟᴇ ɴᴀᴍᴇ: `{filename}`\n\n"
             f"🏷️ ᴇxᴛᴇɴꜱɪᴏɴ: `{extension_type.upper()}`\n"
             f"📏 ꜰɪʟᴇ ꜱɪᴢᴇ: `{filesize}`\n"
             f"🧬 ᴍɪᴍᴇ ᴛʏᴘᴇ: `{mime_type}`\n"
