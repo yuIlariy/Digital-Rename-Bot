@@ -86,7 +86,7 @@ class rkn(object):
 
 <i>💎Powered By</i> @xspes 🚀</b>"""
 
-    ABOUT_TXT = """🪆 <b>🤖 | BOT PROFILE</b> 🪆
+    ABOUT_TXT = """🪆 <b>BOT PROFILE</b> 🪆
 
 <b>⚡️ CORE IDENTITY</b>
 ├ 🎯 <b>Name:</b> {}
@@ -99,7 +99,7 @@ class rkn(object):
 ├ 👨‍💻 <b>Maintainer:</b> <a href='https://t.me/xspes'>NAm</a>
 └ 🆕 <b>Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
 
-💫 <i>Next-gen file renaming technology</i>"""
+💫 <i>Next-gen file renaming Bot</i>"""
 
     HELP_TXT = """
 <b>•></b> /start Tʜᴇ Bᴏᴛ.
