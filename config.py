@@ -86,21 +86,21 @@ class rkn(object):
 
 <i>💎Powered By</i> @xspes 🚀</b>"""
 
-    ABOUT_TXT = """🪆 <b>BOT PROFILE</b> 🪆
+    ABOUT_TXT = """🪄 <b>BOT PROFILE</b> 🔮
 
-<b>⚡️ CORE IDENTITY</b>
+<b>⚡️ MAGICAL CORE</b>
 ├ 🎯 <b>Name:</b> {}
-├ 🛠️ <b>Dev Team:</b> {}
-├ 💻 <b>Lead Coder:</b> {}
-├ 📦 <b>Framework:</b> {}
-├ 🐍 <b>Language:</b> {}
-├ 🗃️ <b>Database:</b> {}
-├ ☁️ <b>Host Base:</b> <a href='https://aws.amazon.com/'>AWS</a>
-├ 👨‍💻 <b>Maintainer:</b> <a href='https://t.me/xspes'>NAm</a>
-└ 🆕 <b>Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
+├ 🛠️ <b>Spell Weavers:</b> {}
+├ 💻 <b>Archmage:</b> {}
+├ 📦 <b>Grimoire:</b> {}
+├ 🐍 <b>Incantation:</b> {}
+├ 🗃️ <b>Scroll Library:</b> {}
+├ ☁️ <b>Crystal Ball:</b> <a href='https://aws.amazon.com/'>AWS</a>
+├ 👨‍💻 <b>Grand Wizard:</b> <a href='https://t.me/xspes'>NAm</a>
+└ 🆕 <b>Spell Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
 
-💫 <i>Next-gen file renaming Bot</i>"""
-
+✨ <i>Where files transform with magical precision!</i>"""
+    
     HELP_TXT = """
 <b>•></b> /start Tʜᴇ Bᴏᴛ.
 
