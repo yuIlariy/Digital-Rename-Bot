@@ -69,22 +69,23 @@ class Config(object):
 
 class rkn(object):
     # part of text configuration
-    START_TXT = """<b>Ｈ𝙰𝙸, {}👋
+    START_TXT = """✨ <b>Greetings, {}! 🧙‍♂️</b>
 
-✨ Welcome To AI Renamer & Media Magician Bot
+🔮 <b>Welcome to the Ultimate File Transformation Bot!</b>
 
-📂 Transform your files with AI power! ✨
+🎩 <i>Where files undergo magical metamorphosis!</i>
 
-🛠 FEATURES:
-✅ Rename files in seconds! ✏️
-✅ Custom thumbnails 🖼️
-✅ Convert videos ↔ files easily! 🎥⇄📄
-✅ Add custom captions 📝
-✅ Edit metadata with Easy! 🔍
+⚡ <b>MAGICAL ABILITIES:</b>
+├ ✅ Instant File Renaming Spells ✨
+├ ✅ Custom Thumbnail Enchantments 🖼️  
+├ ✅ Video ↔ Document Transmutation 🔄
+├ ✅ Caption Crafting Wizardry 📝
+├ ✅ Metadata Alchemy Potions ⚗️
+└ ✅ AI-Powered Sorcery 🤖
 
-<i>🌟 Blazing fast, AI-powered, and loaded with premium features! 🚀</i>
+🌟 <i>Lightning-fast magic with premium enchantments!</i>
 
-<i>💎Powered By</i> @xspes 🚀</b>"""
+💫 <i>Powered by</i> @xspes <b>|</b> 🪄 <i>Spell Weaver</i>"""
 
     ABOUT_TXT = """🪄 <b>BOT PROFILE</b> 🔮
 
