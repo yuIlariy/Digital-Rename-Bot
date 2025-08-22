@@ -33,9 +33,32 @@ License Link : https://github.com/DigitalBotz/Digital-Rename-Bot/blob/main/LICEN
 # extra imports
 import math, time, re, datetime, pytz, os
 from config import Config, rkn
+import random
 
 # pyrogram imports
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+#🧩 Footer variants for randomized progress bar flair
+THEMED_FOOTERS = {
+    "🐢": [
+        "╰━🐢 Slow & steady wins the rename ━➣",
+        "╰━🧘 Patience is a patching virtue ━➣",
+        "╰━📦 Unboxing at turtle speed ━➣",
+        "╰━🌿 Rename growing organically ━➣"
+    ],
+    "🚀": [
+        "╰━🚀 Rename rocket in motion ━➣",
+        "╰━⚡ Fast patch, clean finish ━➣",
+        "╰━🎯 Target acquired, speed locked ━➣",
+        "╰━🧩 Modular rename at warp speed ━➣"
+    ],
+    "🛸": [
+        "╰━🛸 Rename from another dimension ━➣",
+        "╰━🌌 Ultra-speed patching engaged ━➣",
+        "╰━🧬 Quantum rename sequence ━➣",
+        "╰━💫 Rename transcending limits ━➣"
+    ]
+}
 
 def get_speed_icon(speed_bps):
     speed_mbps = speed_bps / (1024 * 1024)
@@ -45,7 +68,6 @@ def get_speed_icon(speed_bps):
         return "🚀"
     else:
         return "🛸"
-
 
 async def progress_for_pyrogram(current, total, ud_type, message, start):
     now = time.time()
@@ -66,7 +88,25 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             ''.join(["▢" for _ in range(20 - math.floor(percentage / 5))])
         )
 
-        tmp = progress_bar + rkn.RKN_PROGRESS.format(
+        footer = random.choice(THEMED_FOOTERS.get(speed_icon, ["╰━━━━━━━━━━━━━━━━➣"]))
+
+        progress_template = f"""<b>
+╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣
+
+┃    🗂️ ᴄᴏᴍᴘʟᴇᴛᴇᴅ: {{1}}
+
+┃    📦 ᴛᴏᴛᴀʟ ꜱɪᴢᴇ: {{2}}
+
+┃    🔋 ꜱᴛᴀᴛᴜꜱ: {{0}}%
+
+┃    {{3}} ꜱᴘᴇᴇᴅ: {{5}}/s
+
+┃    ⏰ ᴇᴛᴀ: {{4}}
+
+{footer}
+</b>"""
+
+        tmp = progress_bar + progress_template.format(
             round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
@@ -84,6 +124,8 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             )
         except:
             pass
+
+#🧩 Footer variants for randomized progress bar flair
 
 def humanbytes(size):
     if not size:
