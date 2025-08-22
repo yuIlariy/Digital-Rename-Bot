@@ -50,68 +50,9 @@ from config import Config
 # extra imports
 from asyncio import sleep
 import os, time, asyncio
-import random
 
-
-UPLOAD_TEXTS = [
-    "🧙‍♂️ Casting upload spell to the cloud realm...",
-    "🔮 Crystal ball transmitting file to the ether...",
-    "✨ Conjuring digital essence to the astral plane...",
-    "🪄 Wand waving: File ascending to cloud kingdom...",
-    "📜 Ancient upload incantation activated...",
-    "🌌 Channeling file through mystical portal...",
-    "⚗️ Brewing cloud potion for file transmutation...",
-    "🎩 Magical hat uploading secrets to the digital realm...",
-    "🧪 Alchemical upload ritual in progress...",
-    "🔭 Telescope focusing on cloud constellation...",
-    "🧿 Evil eye protection during upload ritual...",
-    "📖 Spellbook opening cloud gateway...",
-    "💎 Crystal charging for mystical transfer...",
-    "🕯️ Candlelit upload ceremony underway...",
-    "🌠 Shooting star carrying file to cloud galaxy...",
-    "🧭 Magical compass guiding file to cloud temple...",
-    "⚡ Lightning bolt upload spell casting...",
-    "🔔 Enchanted bell ringing for cloud summoning...",
-    "🏰 Castle wizard uploading to royal cloud...",
-    "🐉 Dragon-assisted cloud ascension...",
-    "🧚 Fairy dust enhancing upload magic...",
-    "🔗 Mystical chain connecting to cloud realm...",
-    "🌙 Moonlight-powered upload ritual...",
-    "🕊️ Dove carrying file to cloud sanctuary...",
-    "🔥 Phoenix fire upload transformation..."
-]
-
-DOWNLOAD_TEXTS = [
-    "🔮 Crystal ball receiving cloud revelations...",
-    "🧙‍♀️ Summoning file from digital spirit world...",
-    "✨ Materializing cloud essence into reality...",
-    "🪄 Wand conjuring file from ether...",
-    "📜 Ancient download incantation chanting...",
-    "🌌 Portal opening for file descent...",
-    "⚗️ Brewing download potion from cloud ingredients...",
-    "🎩 Magical hat producing file from nothingness...",
-    "🧪 Alchemical download ritual completion...",
-    "🔭 Telescope capturing cloud wisdom...",
-    "🧿 Evil eye protection during materialization...",
-    "📖 Spellbook channeling cloud knowledge...",
-    "💎 Crystal receiving digital vibrations...",
-    "🕯️ Candlelit download ceremony manifesting...",
-    "🌠 Meteor shower delivering cloud treasures...",
-    "🧭 Magical compass pointing to file location...",
-    "⚡ Lightning bolt download manifestation...",
-    "🔔 Enchanted bell ringing for file arrival...",
-    "🏰 Castle wizard receiving cloud scrolls...",
-    "🐉 Dragon-delivered cloud artifacts...",
-    "🧚 Fairy dust materializing digital dreams...",
-    "🔗 Mystical chain pulling from cloud library...",
-    "🌙 Moonlight-powered download ritual...",
-    "🕊️ Dove delivering cloud messages...",
-    "🔥 Phoenix rebirth download completion..."
-]
-
-UPLOAD_TEXT = lambda: random.choice(UPLOAD_TEXTS)
-DOWNLOAD_TEXT = lambda: random.choice(DOWNLOAD_TEXTS)
-
+UPLOAD_TEXT = 🚀 Cosmic Launch
+DOWNLOAD_TEXT = 🎯 Precision Fetch
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
 
