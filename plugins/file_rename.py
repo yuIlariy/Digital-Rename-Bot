@@ -53,120 +53,63 @@ import os, time, asyncio
 import random
 
 
-import random
+from helper.utils import get_speed_icon
 
-def get_speed_icon(speed_bps):
-    speed_mbps = speed_bps / (1024 * 1024)
-    if speed_mbps < 7:
-        return "🐢"
-    elif speed_mbps < 11:
-        return "🚀"
-    else:
-        return "🛸"
-
+# 🐢 Slow tier messages
 SLOW_UPLOAD_TEXTS = [
-    "📤 Uploading... slow lane engaged.",
-    "🐢 Upload pacing like a tortoise.",
-    "🧘 Upload breathing byte by byte.",
-    "🪴 Upload sprouting gently.",
-    "🫧 Upload trickling in softly.",
-    "🧸 Upload wrapped in comfort.",
-    "🕯️ Upload glowing quietly.",
-    "🪙 Upload inching forward.",
-    "🧦 Upload bundled in patience.",
-    "🫖 Upload steeping in silence."
+    "Uploading... but it's feeling shy 🐢",
+    "Slow and steady wins the upload 🐢",
+    "Crawling through the cloud 🐢"
 ]
 
 SLOW_DOWNLOAD_TEXTS = [
-    "📥 Downloading... no rush at all.",
-    "🐌 Download sliding in slowly.",
-    "🧘‍♂️ Download floating in peace.",
-    "🪵 Download drifting downstream.",
-    "🫗 Download pouring bit by bit.",
-    "🧂 Download lightly seasoned.",
-    "🧃 Download sipping bandwidth.",
-    "🧺 Download unfolding gently.",
-    "🧵 Download weaving bytes calmly.",
-    "🧦 Download cozy and quiet."
+    "Downloading at turtle pace 🐢",
+    "Patience, young padawan 🐢",
+    "Snail-mail speeds detected 🐢"
 ]
 
+# 🚀 Medium tier messages
 MEDIUM_UPLOAD_TEXTS = [
-    "📤 Upload moving at a steady clip.",
-    "🚶 Upload walking the byte path.",
-    "🧰 Upload tools humming along.",
-    "🛠️ Upload hammering bytes clean.",
-    "🧵 Upload stitching with rhythm.",
-    "🧭 Upload navigating midstream.",
-    "🧪 Upload mixing bytes smoothly.",
-    "🧳 Upload packed and pacing.",
-    "🧼 Upload polishing mid-flight.",
-    "🧯 Upload fireproof and focused."
+    "Uploading with rocket fuel 🚀",
+    "Cruising through the cloud 🚀",
+    "Mid-tier momentum engaged 🚀"
 ]
 
 MEDIUM_DOWNLOAD_TEXTS = [
-    "📥 Download rolling in with grace.",
-    "🚶‍♂️ Download pacing through packets.",
-    "🧺 Download collecting cleanly.",
-    "🪡 Download threading the stream.",
-    "🧭 Download locked on course.",
-    "🧰 Download toolkit deployed.",
-    "🧪 Download chemistry flowing.",
-    "🧳 Download unpacking steadily.",
-    "🧼 Download polished on arrival.",
-    "🧯 Download shielded and smooth."
+    "Download in progress—hold tight 🚀",
+    "Streaming through cyberspace 🚀",
+    "Decent speed, decent vibes 🚀"
 ]
 
+# 🛸 Fast tier messages
 FAST_UPLOAD_TEXTS = [
-    "📤 Upload blazing through the cloud!",
-    "🚀 Upload rocketing bytes skyward.",
-    "⚡ Upload electrifying the stream.",
-    "🧨 Upload detonating speed bursts.",
-    "🛞 Upload spinning at full tilt.",
-    "🎯 Upload locked on target.",
-    "🧠 Upload thinking in milliseconds.",
-    "🧩 Upload solving byte puzzles fast.",
-    "🎮 Upload in turbo mode.",
-    "💨 Upload breezing past limits."
+    "Upload warp engaged 🛸",
+    "Blink and it's gone 🛸",
+    "File beamed up instantly 🛸"
 ]
 
 FAST_DOWNLOAD_TEXTS = [
-    "📥 Download storming in at warp!",
-    "🚄 Download bulleting through data.",
-    "🧲 Download magnetized for speed.",
-    "🌌 Download from the edge of space.",
-    "🧠 Download thinking faster than light.",
-    "🛸 Download warping into memory.",
-    "💫 Download transcending bandwidth.",
-    "🪐 Download orbiting perfection.",
-    "🧿 Download locking onto bytes.",
-    "🧬 Download mutating at hyperspeed."
+    "Download complete before you blink 🛸",
+    "Speed demon mode: activated 🛸",
+    "File landed from orbit 🛸"
 ]
 
-def get_upload_text_by_speed(speed_bps):
-    icon = get_speed_icon(speed_bps)
-    if icon == "🐢":
-        return random.choice(SLOW_UPLOAD_TEXTS)
-    elif icon == "🚀":
-        return random.choice(MEDIUM_UPLOAD_TEXTS)
-    else:
-        return random.choice(FAST_UPLOAD_TEXTS)
-
-def get_download_text_by_speed(speed_bps):
-    icon = get_speed_icon(speed_bps)
-    if icon == "🐢":
-        return random.choice(SLOW_DOWNLOAD_TEXTS)
-    elif icon == "🚀":
-        return random.choice(MEDIUM_DOWNLOAD_TEXTS)
-    else:
-        return random.choice(FAST_DOWNLOAD_TEXTS)
-
 # 🧮 Speed calculation and expressive text assignment
-current = 10_000_000  # Example bytes transferred
-elapsed_time = 2.5    # Example seconds taken
+def assign_transfer_texts(current_bytes, elapsed_seconds):
+    speed_bps = current_bytes / elapsed_seconds
+    icon = get_speed_icon(speed_bps)
 
-speed = current / elapsed_time  # Bytes per second
-UPLOAD_TEXT = get_upload_text_by_speed(speed)
-DOWNLOAD_TEXT = get_download_text_by_speed(speed)
+    global UPLOAD_TEXT, DOWNLOAD_TEXT
+
+    if icon == "🐢":
+        UPLOAD_TEXT = random.choice(SLOW_UPLOAD_TEXTS)
+        DOWNLOAD_TEXT = random.choice(SLOW_DOWNLOAD_TEXTS)
+    elif icon == "🚀":
+        UPLOAD_TEXT = random.choice(MEDIUM_UPLOAD_TEXTS)
+        DOWNLOAD_TEXT = random.choice(MEDIUM_DOWNLOAD_TEXTS)
+    else:
+        UPLOAD_TEXT = random.choice(FAST_UPLOAD_TEXTS)
+        DOWNLOAD_TEXT = random.choice(FAST_DOWNLOAD_TEXTS)
 
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
