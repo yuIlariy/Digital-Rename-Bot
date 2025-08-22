@@ -53,63 +53,61 @@ import os, time, asyncio
 import random
 
 
-from helper.utils import get_speed_icon
+UPLOAD_TEXT = random.choice([
+    "🧙‍♂️ Casting upload spell to the cloud realm...",
+    "🔮 Crystal ball transmitting file to the ether...",
+    "✨ Conjuring digital essence to the astral plane...",
+    "🪄 Wand waving: File ascending to cloud kingdom...",
+    "📜 Ancient upload incantation activated...",
+    "🌌 Channeling file through mystical portal...",
+    "⚗️ Brewing cloud potion for file transmutation...",
+    "🎩 Magical hat uploading secrets to the digital realm...",
+    "🧪 Alchemical upload ritual in progress...",
+    "🔭 Telescope focusing on cloud constellation...",
+    "🧿 Evil eye protection during upload ritual...",
+    "📖 Spellbook opening cloud gateway...",
+    "💎 Crystal charging for mystical transfer...",
+    "🕯️ Candlelit upload ceremony underway...",
+    "🌠 Shooting star carrying file to cloud galaxy...",
+    "🧭 Magical compass guiding file to cloud temple...",
+    "⚡ Lightning bolt upload spell casting...",
+    "🔔 Enchanted bell ringing for cloud summoning...",
+    "🏰 Castle wizard uploading to royal cloud...",
+    "🐉 Dragon-assisted cloud ascension...",
+    "🧚 Fairy dust enhancing upload magic...",
+    "🔗 Mystical chain connecting to cloud realm...",
+    "🌙 Moonlight-powered upload ritual...",
+    "🕊️ Dove carrying file to cloud sanctuary...",
+    "🔥 Phoenix fire upload transformation..."
+])
 
-# 🐢 Slow tier messages
-SLOW_UPLOAD_TEXTS = [
-    "Uploading... but it's feeling shy 🐢",
-    "Slow and steady wins the upload 🐢",
-    "Crawling through the cloud 🐢"
-]
-
-SLOW_DOWNLOAD_TEXTS = [
-    "Downloading at turtle pace 🐢",
-    "Patience, young padawan 🐢",
-    "Snail-mail speeds detected 🐢"
-]
-
-# 🚀 Medium tier messages
-MEDIUM_UPLOAD_TEXTS = [
-    "Uploading with rocket fuel 🚀",
-    "Cruising through the cloud 🚀",
-    "Mid-tier momentum engaged 🚀"
-]
-
-MEDIUM_DOWNLOAD_TEXTS = [
-    "Download in progress—hold tight 🚀",
-    "Streaming through cyberspace 🚀",
-    "Decent speed, decent vibes 🚀"
-]
-
-# 🛸 Fast tier messages
-FAST_UPLOAD_TEXTS = [
-    "Upload warp engaged 🛸",
-    "Blink and it's gone 🛸",
-    "File beamed up instantly 🛸"
-]
-
-FAST_DOWNLOAD_TEXTS = [
-    "Download complete before you blink 🛸",
-    "Speed demon mode: activated 🛸",
-    "File landed from orbit 🛸"
-]
-
-# 🧮 Speed calculation and direct assignment
-current_bytes = 10000000       # Example value
-elapsed_seconds = 2.5          # Example value
-speed_bps = current_bytes / elapsed_seconds
-speed_icon = get_speed_icon(speed_bps)
-
-if speed_icon == "🐢":
-    UPLOAD_TEXT = random.choice(SLOW_UPLOAD_TEXTS)
-    DOWNLOAD_TEXT = random.choice(SLOW_DOWNLOAD_TEXTS)
-elif speed_icon == "🚀":
-    UPLOAD_TEXT = random.choice(MEDIUM_UPLOAD_TEXTS)
-    DOWNLOAD_TEXT = random.choice(MEDIUM_DOWNLOAD_TEXTS)
-else:
-    UPLOAD_TEXT = random.choice(FAST_UPLOAD_TEXTS)
-    DOWNLOAD_TEXT = random.choice(FAST_DOWNLOAD_TEXTS)
-
+DOWNLOAD_TEXT = random.choice([
+    "🔮 Crystal ball receiving cloud revelations...",
+    "🧙‍♀️ Summoning file from digital spirit world...",
+    "✨ Materializing cloud essence into reality...",
+    "🪄 Wand conjuring file from ether...",
+    "📜 Ancient download incantation chanting...",
+    "🌌 Portal opening for file descent...",
+    "⚗️ Brewing download potion from cloud ingredients...",
+    "🎩 Magical hat producing file from nothingness...",
+    "🧪 Alchemical download ritual completion...",
+    "🔭 Telescope capturing cloud wisdom...",
+    "🧿 Evil eye protection during materialization...",
+    "📖 Spellbook channeling cloud knowledge...",
+    "💎 Crystal receiving digital vibrations...",
+    "🕯️ Candlelit download ceremony manifesting...",
+    "🌠 Meteor shower delivering cloud treasures...",
+    "🧭 Magical compass pointing to file location...",
+    "⚡ Lightning bolt download manifestation...",
+    "🔔 Enchanted bell ringing for file arrival...",
+    "🏰 Castle wizard receiving cloud scrolls...",
+    "🐉 Dragon-delivered cloud artifacts...",
+    "🧚 Fairy dust materializing digital dreams...",
+    "🔗 Mystical chain pulling from cloud library...",
+    "🌙 Moonlight-powered download ritual...",
+    "🕊️ Dove delivering cloud messages...",
+    "🔥 Phoenix rebirth download completion..."
+])
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
 
