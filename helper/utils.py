@@ -44,19 +44,67 @@ THEMED_FOOTERS = {
         "╰━🐢 Slow & steady wins the rename ━➣",
         "╰━🧘 Patience is a patching virtue ━➣",
         "╰━📦 Unboxing at turtle speed ━➣",
-        "╰━🌿 Rename growing organically ━➣"
+        "╰━🌿 Rename growing organically ━➣",
+        "╰━🪴 Gentle patching in progress ━➣",
+        "╰━🧊 Rename chilling in low gear ━➣",
+        "╰━🐌 Sluggish but steady ━➣",
+        "╰━🧵 Threading bytes with care ━➣",
+        "╰━🪙 Rename crawling byte by byte ━➣",
+        "╰━🧺 Slow basket of bits ━➣",
+        "╰━🪶 Rename floating softly ━➣",
+        "╰━🧸 Cozy patching underway ━➣",
+        "╰━🕯️ Rename lit by patience ━➣",
+        "╰━🫧 Bubble-speed rename ━➣",
+        "╰━🧂 Lightly seasoned rename ━➣",
+        "╰━🧃 Rename sipping bandwidth ━➣",
+        "╰━🫖 Rename brewing slowly ━➣",
+        "╰━🧺 Basket of bytes unfolding ━➣",
+        "╰━🧦 Rename wrapped in comfort ━➣",
+        "╰━🧘‍♂️ Zen rename in motion ━➣"
     ],
     "🚀": [
         "╰━🚀 Rename rocket in motion ━➣",
         "╰━⚡ Fast patch, clean finish ━➣",
         "╰━🎯 Target acquired, speed locked ━➣",
-        "╰━🧩 Modular rename at warp speed ━➣"
+        "╰━🧩 Modular rename at warp speed ━➣",
+        "╰━💨 Rename breezing through ━➣",
+        "╰━🛠️ Precision patching active ━➣",
+        "╰━📡 Rename pinged and patched ━➣",
+        "╰━🧪 Rename chemistry optimized ━➣",
+        "╰━📈 Rename trending upward ━➣",
+        "╰━🧭 Rename locked on course ━➣",
+        "╰━🧰 Rename toolkit deployed ━➣",
+        "╰━🎮 Rename in turbo mode ━➣",
+        "╰━🧠 Rename thinking fast ━➣",
+        "╰━🧤 Rename gripping bytes ━➣",
+        "╰━🧱 Rename stacking clean ━➣",
+        "╰━🧼 Rename polished mid-flight ━➣",
+        "╰━🧯 Rename fireproofed ━➣",
+        "╰━🧞 Rename granting speed wishes ━➣",
+        "╰━🧃 Rename juiced up ━➣",
+        "╰━🧳 Rename packed and moving ━➣"
     ],
     "🛸": [
         "╰━🛸 Rename from another dimension ━➣",
         "╰━🌌 Ultra-speed patching engaged ━➣",
         "╰━🧬 Quantum rename sequence ━➣",
-        "╰━💫 Rename transcending limits ━➣"
+        "╰━💫 Rename transcending limits ━➣",
+        "╰━🪐 Rename orbiting perfection ━➣",
+        "╰━🧠 Rename outsmarting gravity ━➣",
+        "╰━🧿 Rename seeing beyond bytes ━➣",
+        "╰━🧲 Rename magnetized for speed ━➣",
+        "╰━🧪 Rename formula unlocked ━➣",
+        "╰━🧱 Rename warping structure ━➣",
+        "╰━🧞‍♂️ Rename summoned from hyperspace ━➣",
+        "╰━🧤 Rename gripping galaxies ━➣",
+        "╰━🧰 Rename toolkit from the future ━➣",
+        "╰━🧭 Rename navigating wormholes ━➣",
+        "╰━🧼 Rename polished by stardust ━➣",
+        "╰━🧯 Rename fireproofed at light speed ━➣",
+        "╰━🧃 Rename juiced with cosmic energy ━➣",
+        "╰━🧳 Rename packed for interstellar travel ━➣",
+        "╰━🧩 Rename solving galactic puzzles ━➣",
+        "╰━🧠 Rename thinking faster than light ━➣"
     ]
 }
 
@@ -124,7 +172,7 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
             )
         except:
             pass
-
+            
 #🧩 Footer variants for randomized progress bar flair
 
 def humanbytes(size):
