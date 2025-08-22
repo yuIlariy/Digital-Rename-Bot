@@ -94,22 +94,21 @@ FAST_DOWNLOAD_TEXTS = [
     "File landed from orbit 🛸"
 ]
 
-# 🧮 Speed calculation and expressive text assignment
-def assign_transfer_texts(current_bytes, elapsed_seconds):
-    speed_bps = current_bytes / elapsed_seconds
-    icon = get_speed_icon(speed_bps)
+# 🧮 Speed calculation and direct assignment
+current_bytes = 10000000       # Example value
+elapsed_seconds = 2.5          # Example value
+speed_bps = current_bytes / elapsed_seconds
+speed_icon = get_speed_icon(speed_bps)
 
-    global UPLOAD_TEXT, DOWNLOAD_TEXT
-
-    if icon == "🐢":
-        UPLOAD_TEXT = random.choice(SLOW_UPLOAD_TEXTS)
-        DOWNLOAD_TEXT = random.choice(SLOW_DOWNLOAD_TEXTS)
-    elif icon == "🚀":
-        UPLOAD_TEXT = random.choice(MEDIUM_UPLOAD_TEXTS)
-        DOWNLOAD_TEXT = random.choice(MEDIUM_DOWNLOAD_TEXTS)
-    else:
-        UPLOAD_TEXT = random.choice(FAST_UPLOAD_TEXTS)
-        DOWNLOAD_TEXT = random.choice(FAST_DOWNLOAD_TEXTS)
+if speed_icon == "🐢":
+    UPLOAD_TEXT = random.choice(SLOW_UPLOAD_TEXTS)
+    DOWNLOAD_TEXT = random.choice(SLOW_DOWNLOAD_TEXTS)
+elif speed_icon == "🚀":
+    UPLOAD_TEXT = random.choice(MEDIUM_UPLOAD_TEXTS)
+    DOWNLOAD_TEXT = random.choice(MEDIUM_DOWNLOAD_TEXTS)
+else:
+    UPLOAD_TEXT = random.choice(FAST_UPLOAD_TEXTS)
+    DOWNLOAD_TEXT = random.choice(FAST_DOWNLOAD_TEXTS)
 
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
