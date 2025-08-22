@@ -50,10 +50,114 @@ from config import Config
 # extra imports
 from asyncio import sleep
 import os, time, asyncio
+import random
 
 
-UPLOAD_TEXT = """📤 Uploading Started...."""
-DOWNLOAD_TEXT = """📥 Download Started..."""
+def get_speed_icon(speed_bps):
+    speed_mbps = speed_bps / (1024 * 1024)
+    if speed_mbps < 7:
+        return "🐢"
+    elif speed_mbps < 11:
+        return "🚀"
+    else:
+        return "🛸"
+
+SLOW_UPLOAD_TEXT = random.choice([
+    "📤 Uploading... slow lane engaged.",
+    "🐢 Upload pacing like a tortoise.",
+    "🧘 Upload breathing byte by byte.",
+    "🪴 Upload sprouting gently.",
+    "🫧 Upload trickling in softly.",
+    "🧸 Upload wrapped in comfort.",
+    "🕯️ Upload glowing quietly.",
+    "🪙 Upload inching forward.",
+    "🧦 Upload bundled in patience.",
+    "🫖 Upload steeping in silence."
+])
+
+SLOW_DOWNLOAD_TEXT = random.choice([
+    "📥 Downloading... no rush at all.",
+    "🐌 Download sliding in slowly.",
+    "🧘‍♂️ Download floating in peace.",
+    "🪵 Download drifting downstream.",
+    "🫗 Download pouring bit by bit.",
+    "🧂 Download lightly seasoned.",
+    "🧃 Download sipping bandwidth.",
+    "🧺 Download unfolding gently.",
+    "🧵 Download weaving bytes calmly.",
+    "🧦 Download cozy and quiet."
+])
+
+MEDIUM_UPLOAD_TEXT = random.choice([
+    "📤 Upload moving at a steady clip.",
+    "🚶 Upload walking the byte path.",
+    "🧰 Upload tools humming along.",
+    "🛠️ Upload hammering bytes clean.",
+    "🧵 Upload stitching with rhythm.",
+    "🧭 Upload navigating midstream.",
+    "🧪 Upload mixing bytes smoothly.",
+    "🧳 Upload packed and pacing.",
+    "🧼 Upload polishing mid-flight.",
+    "🧯 Upload fireproof and focused."
+])
+
+MEDIUM_DOWNLOAD_TEXT = random.choice([
+    "📥 Download rolling in with grace.",
+    "🚶‍♂️ Download pacing through packets.",
+    "🧺 Download collecting cleanly.",
+    "🪡 Download threading the stream.",
+    "🧭 Download locked on course.",
+    "🧰 Download toolkit deployed.",
+    "🧪 Download chemistry flowing.",
+    "🧳 Download unpacking steadily.",
+    "🧼 Download polished on arrival.",
+    "🧯 Download shielded and smooth."
+])
+
+FAST_UPLOAD_TEXT = random.choice([
+    "📤 Upload blazing through the cloud!",
+    "🚀 Upload rocketing bytes skyward.",
+    "⚡ Upload electrifying the stream.",
+    "🧨 Upload detonating speed bursts.",
+    "🛞 Upload spinning at full tilt.",
+    "🎯 Upload locked on target.",
+    "🧠 Upload thinking in milliseconds.",
+    "🧩 Upload solving byte puzzles fast.",
+    "🎮 Upload in turbo mode.",
+    "💨 Upload breezing past limits."
+])
+
+FAST_DOWNLOAD_TEXT = random.choice([
+    "📥 Download storming in at warp!",
+    "🚄 Download bulleting through data.",
+    "🧲 Download magnetized for speed.",
+    "🌌 Download from the edge of space.",
+    "🧠 Download thinking faster than light.",
+    "🛸 Download warping into memory.",
+    "💫 Download transcending bandwidth.",
+    "🪐 Download orbiting perfection.",
+    "🧿 Download locking onto bytes.",
+    "🧬 Download mutating at hyperspeed."
+])
+
+def get_upload_text_by_speed(speed_bps):
+    icon = get_speed_icon(speed_bps)
+    if icon == "🐢":
+        return SLOW_UPLOAD_TEXT
+    elif icon == "🚀":
+        return MEDIUM_UPLOAD_TEXT
+    else:
+        return FAST_UPLOAD_TEXT
+
+def get_download_text_by_speed(speed_bps):
+    icon = get_speed_icon(speed_bps)
+    if icon == "🐢":
+        return SLOW_DOWNLOAD_TEXT
+    elif icon == "🚀":
+        return MEDIUM_DOWNLOAD_TEXT
+    else:
+        return FAST_DOWNLOAD_TEXT
+
 
 app = Client("4gb_FileRenameBot", api_id=Config.API_ID, api_hash=Config.API_HASH, session_string=Config.STRING_SESSION)
 
