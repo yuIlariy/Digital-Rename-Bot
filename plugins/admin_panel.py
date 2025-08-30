@@ -90,7 +90,7 @@ async def add_premium(client, message):
         if len(message.command) < 4:
             return await message.reply_text(
                 "📌 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
-                "🔹 **Plan_Type:** e.g. `Pro`, `UltraPro`\n"
+                "🔹 **Plan_Type:** `Pro`, `UltraPro`\n"
                 "⏱️ **Time Format:**\n"
                 "• `1 min` → minutes\n"
                 "• `1 hour` → hours\n"
@@ -147,7 +147,7 @@ async def add_premium(client, message):
         if len(message.command) < 3:
             return await message.reply_text(
                 "📌 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
-                "🔹 **Plan_Type:** e.g. `Pro`, `UltraPro`\n"
+                "🔹 **Plan_Type:** `Pro`, `UltraPro`\n"
                 "⏱️ **Time Format:**\n"
                 "• `1 min` → minutes\n"
                 "• `1 hour` → hours\n"
