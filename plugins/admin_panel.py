@@ -105,7 +105,7 @@ async def add_premium(client, message):
         plan_type = message.command[2]
 
         if plan_type not in ["Pro", "UltraPro"]:
-            return await message.reply_text("📜 Invalid Plan Type. Please use `Pro` or `UltraPro` 🧩", quote=True)
+            return await message.reply_text("🧩 Invalid Plan Type. Please use '`Pro`' or '`UltraPro`' ", quote=True)
 
         time_string = " ".join(message.command[3:])
 
