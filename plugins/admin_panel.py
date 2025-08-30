@@ -79,6 +79,8 @@ async def log_file(b, m):
     except Exception as e:
         await m.reply(str(e))
 
+
+
 @Client.on_message(filters.command(["addpremium", "add_premium"]) & filters.user(Config.ADMIN))
 async def add_premium(client, message):
     if not client.premium:
@@ -86,7 +88,18 @@ async def add_premium(client, message):
      
     if client.uploadlimit:
         if len(message.command) < 4:
-            return await message.reply_text("Usage : /addpremium user_id Plan_Type (e.g... `Pro`, `UltraPro`) time (e.g., '1 day for days', '1 hour for hours', or '1 min for minutes', or '1 month for months' or '1 year for year')", quote=True)
+            return await message.reply_text(
+                "📌 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
+                "🔹 **Plan_Type:** e.g. `Pro`, `UltraPro`\n"
+                "⏱️ **Time Format:**\n"
+                "• `1 min` → minutes\n"
+                "• `1 hour` → hours\n"
+                "• `1 day` → days\n"
+                "• `1 month` → months\n"
+                "• `1 year` → year\n\n"
+                "✅ **Example:** `/addpremium 6318135266 Pro 1 month`",
+                quote=True
+            )
 
         user_id = int(message.command[1])
         plan_type = message.command[2]
@@ -132,7 +145,18 @@ async def add_premium(client, message):
 
     else:
         if len(message.command) < 3:
-            return await message.reply_text("Usage : /addpremium user_id time (e.g., '1 day for days', '1 hour for hours', or '1 min for minutes', or '1 month for months' or '1 year for year')", quote=True)
+            return await message.reply_text(
+                "📌 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
+                "🔹 **Plan_Type:** e.g. `Pro`, `UltraPro`\n"
+                "⏱️ **Time Format:**\n"
+                "• `1 min` → minutes\n"
+                "• `1 hour` → hours\n"
+                "• `1 day` → days\n"
+                "• `1 month` → months\n"
+                "• `1 year` → year\n\n"
+                "✅ **Example:** `/addpremium 6318135266 Pro 1 month`",
+                quote=True
+            )
 
         user_id = int(message.command[1])
         time_string = " ".join(message.command[2:])
@@ -158,7 +182,8 @@ async def add_premium(client, message):
                 chat_id=user_id,
                 text=f"👋 ʜᴇʏ {user.mention},\nᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ᴘᴜʀᴄʜᴀꜱɪɴɢ ᴘʀᴇᴍɪᴜᴍ.\nᴇɴᴊᴏʏ !! ✨🎉\n\n⏰ ᴘʀᴇᴍɪᴜᴍ ᴀᴄᴄᴇꜱꜱ : <code>{time}</code>\n⏳ ᴊᴏɪɴɪɴɢ ᴅᴀᴛᴇ : {current_time}\n\n⌛️ ᴇxᴘɪʀʏ ᴅᴀᴛᴇ : {expiry_str_in_ist}", disable_web_page_preview=True              
             )    
-     
+
+
 
 @Client.on_message(filters.command(["removepremium", "remove_premium"]) & filters.user(Config.ADMIN))
 async def remove_premium(bot, message):
