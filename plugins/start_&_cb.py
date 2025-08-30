@@ -250,7 +250,7 @@ async def cb_handler(client, query: CallbackQuery):
         real_total_premium_users = await digital_botz.total_premium_users_count()
         #🪄 Magic Boost
         total_users = real_total_users + 1009
-        total_premium_users = real_premium_users + 50 if client.premium else "Disabled ✅"
+        total_premium_users = real_total_premium_users + 50 if client.premium else "Disabled ✅"
         
         uptime = format_uptime(int(time.time() - client.uptime))
         sent = humanbytes(psutil.net_io_counters().bytes_sent)
