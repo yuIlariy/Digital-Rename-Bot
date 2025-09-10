@@ -78,7 +78,7 @@ class rkn(object):
 ⚡ <b>FEATURES:</b>
 ├ ✅ Effortless File Renaming  
 ├ ✅ Add Your Own Custom Captions  
-├ ✅ Convert Videos to Documents & Vice Versa  
+├ ✅ Video ↔️ Document convertion 🔄  
 ├ ✅ Personalize Thumbnails  
 ├ ✅ Edit File Metadata  
 └ ✅ Smart AI Enhancements  
