@@ -71,19 +71,19 @@ class rkn(object):
     # part of text configuration
     START_TXT = """✨ <b>Greetings, {}! 🧙‍♂️</b>
 
-🔮 <b>Welcome to the Ultimate File Transformation Bot!</b>
+🔮 <b>Welcome to the Ultimate File Renaming Bot!</b>
 
 🎩 <i>Where files undergo magical metamorphosis!</i>
 
-⚡ <b>MAGICAL ABILITIES:</b>
-├ ✅ Instant File Renaming Spells ✨
-├ ✅ Custom Thumbnail Enchantments 🖼️  
-├ ✅ Video ↔ Document Transmutation 🔄
-├ ✅ Caption Crafting Wizardry 📝
-├ ✅ Metadata Alchemy Potions ⚗️
-└ ✅ AI-Powered Sorcery 🤖
+⚡ <b>FEATURES:</b>
+├ ✅ Effortless File Renaming  
+├ ✅ Add Your Own Custom Captions  
+├ ✅ Convert Videos to Documents & Vice Versa  
+├ ✅ Personalize Thumbnails  
+├ ✅ Edit File Metadata  
+└ ✅ Smart AI Enhancements  
 
-🌟 <i>Lightning-fast magic with premium enchantments!</i>
+🌟 <i>Lightning-fast with premium enchantments!</i>
 
 💫 <i>Powered by</i> @xspes <b>|</b> 🪄 <i>Spell Weaver</i>"""
 
