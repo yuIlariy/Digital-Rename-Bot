@@ -85,7 +85,7 @@ class rkn(object):
 
 🌟 <i>Lightning-fast with premium enchantments!</i>
 
-💫 <i>Powered by</i> @xspes <b>|</b> 🪄 <i>Spell Weaver</i>"""
+💫 <i>Powered By</i> <a href="https://t.me/xspes">NAm</a> <b>|</b> 🪄 <i>Spell Weaver</i>"""
 
     ABOUT_TXT = """🪄 <b>BOT PROFILE</b> 🔮
 
