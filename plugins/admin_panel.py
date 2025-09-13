@@ -243,9 +243,9 @@ async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
             f"🚫 Use this command to ban any user from the bot.\n\n"
-            f"📌 *Usage:*\n\n"
+            f"📌 Usage:\n\n"
             f"`/ban user_id ban_duration ban_reason`\n\n"
-            f"🧪 *Example:*\n"
+            f"🧪 Example:\n"
             f"`/ban 1234567 28 You misused me.`\n\n"
             f"✅ This will ban user with ID `1234567` for `28` days for the reason: `You misused me`.",
             quote=True
@@ -282,9 +282,9 @@ async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
             f"🔓 Use this command to unban any user.\n\n"
-            f"📌 *Usage:*\n\n"
+            f"📌 Usage:\n\n"
             f"`/unban user_id`\n\n"
-            f"🧪 *Example:*\n"
+            f"🧪 Example:\n"
             f"`/unban 1234567`\n\n"
             f"✅ This will unban user with ID `1234567`.",
             quote=True
@@ -323,7 +323,7 @@ async def _banned_users(_, m: Message):
         banned_usr_count += 1
         text += f"> **user_id**: `{user_id}`, **Ban Duration**: `{ban_duration}`, " \
                 f"**Banned on**: `{banned_on}`, **Reason**: `{ban_reason}`\n\n"
-    reply_text = f"Total banned user(s): `{banned_usr_count}`\n\n{text}"
+    reply_text = f"📜 Total banned user(s): `{banned_usr_count}`\n\n{text}"
     if len(reply_text) > 4096:
         with open('banned-users.txt', 'w') as f:
             f.write(reply_text)
