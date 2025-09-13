@@ -242,11 +242,12 @@ async def restart_bot(b, m):
 async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
-            f"Use this command to ban any user from the bot.\n\n"
-            f"Usage:\n\n"
+            f"🚫 Use this command to ban any user from the bot.\n\n"
+            f"📌 *Usage:*\n\n"
             f"`/ban user_id ban_duration ban_reason`\n\n"
-            f"Eg: `/ban 1234567 28 You misused me.`\n"
-            f"This will ban user with id `1234567` for `28` days for the reason `You misused me`.",
+            f"🧪 *Example:*\n"
+            f"`/ban 1234567 28 You misused me.`\n\n"
+            f"✅ This will ban user with ID `1234567` for `28` days for the reason: `You misused me`.",
             quote=True
         )
         return
@@ -258,7 +259,7 @@ async def ban(c: Client, m: Message):
         ban_log_text = f"Banning user {user_id} for {ban_duration} days for the reason {ban_reason}."
         try:
             await c.send_message(user_id,              
-                f"You are banned to use this bot for **{ban_duration}** day(s) for the reason __{ban_reason}__ \n\n"
+                f"🚫 You are banned to use this bot for **{ban_duration}** day(s) for the reason __{ban_reason}__ \n\n"
                 f"**Message from the admin**"
             )
             ban_log_text += '\n\nUser notified successfully!'
@@ -271,7 +272,7 @@ async def ban(c: Client, m: Message):
     except:
         traceback.print_exc()
         await m.reply_text(
-            f"Error occoured! Traceback given below\n\n`{traceback.format_exc()}`",
+            f"🧪 Error occoured! Traceback given below\n\n`{traceback.format_exc()}`",
             quote=True
         )
 
@@ -280,10 +281,12 @@ async def ban(c: Client, m: Message):
 async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
-            f"Use this command to unban any user.\n\n"
-            f"Usage:\n\n`/unban user_id`\n\n"
-            f"Eg: `/unban 1234567`\n"
-            f"This will unban user with id `1234567`.",
+            f"🔓 Use this command to unban any user.\n\n"
+            f"📌 *Usage:*\n\n"
+            f"`/unban user_id`\n\n"
+            f"🧪 *Example:*\n"
+            f"`/unban 1234567`\n\n"
+            f"✅ This will unban user with ID `1234567`.",
             quote=True
         )
         return
@@ -302,7 +305,7 @@ async def unban(c: Client, m: Message):
     except:
         traceback.print_exc()
         await m.reply_text(
-            f"Error occurred! Traceback given below\n\n`{traceback.format_exc()}`",
+            f"🧪 Error occurred! Traceback given below\n\n`{traceback.format_exc()}`",
             quote=True
         )
 
