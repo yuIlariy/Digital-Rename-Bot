@@ -89,16 +89,15 @@ class rkn(object):
 
     ABOUT_TXT = """🪄 <b>BOT PROFILE</b> 🔮
 
-<b>⚡️ MAGICAL CORE</b>
 ├ 🎯 <b>Name:</b> {}
-├ 🛠️ <b>Spell Weavers:</b> {}
-├ 💻 <b>Archmage:</b> {}
-├ 📦 <b>Grimoire:</b> {}
-├ 🐍 <b>Incantation:</b> {}
-├ 🗃️ <b>Scroll Library:</b> {}
-├ ☁️ <b>Crystal Ball:</b> <a href='https://deluxhost.net//'>DeluxHost</a>
-├ 👨‍💻 <b>Grand Wizard:</b> <a href='https://t.me/xspes'>NAm</a>
-└ 🆕 <b>Spell Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
+├ 🛠️ <b>Developers:</b> {}
+├ 💻 <b>Programer:</b> {}
+├ 📦 <b>Library:</b> {}
+├ 🐍 <b>Language:</b> {}
+├ 🗃️ <b>Data Base:</b> {}
+├ ☁️ <b>Platform:</b> <a href='https://deluxhost.net//'>DeluxHost</a>
+├ 👨‍💻 <b>Wizard:</b> <a href='https://t.me/xspes'>NAm</a>
+└ 🆕 <b>Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
 
 ✨ <i>Where files transform with magical precision!</i>"""
     
