@@ -96,7 +96,7 @@ class rkn(object):
 ├ 📦 <b>Grimoire:</b> {}
 ├ 🐍 <b>Incantation:</b> {}
 ├ 🗃️ <b>Scroll Library:</b> {}
-├ ☁️ <b>Crystal Ball:</b> <a href='https://aws.amazon.com/'>AWS</a>
+├ ☁️ <b>Crystal Ball:</b> <a href='https://deluxhost.net//'>DeluxHost</a>
 ├ 👨‍💻 <b>Grand Wizard:</b> <a href='https://t.me/xspes'>NAm</a>
 └ 🆕 <b>Spell Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
 
