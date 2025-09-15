@@ -95,7 +95,7 @@ class rkn(object):
 ├ 📦 <b>Library:</b> {}
 ├ 🐍 <b>Language:</b> {}
 ├ 🗃️ <b>Data Base:</b> {}
-├ ☁️ <b>Platform:</b> <a href='https://deluxhost.net//'>DeluxHost</a>
+├ ☁️ <b>Server:</b> <a href='https://deluxhost.net//'>DeluxHost</a>
 ├ 👨‍💻 <b>Wizard:</b> <a href='https://t.me/xspes'>NAm</a>
 └ 🆕 <b>Version:</b> <a href='https://github.com/yuIlariy/Digital-Rename-Bot'>{}</a>
 
