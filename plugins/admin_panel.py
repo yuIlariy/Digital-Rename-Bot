@@ -89,7 +89,7 @@ async def add_premium(client, message):
     if client.uploadlimit:
         if len(message.command) < 4:
             return await message.reply_text(
-                "📌 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
+                "📜 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
                 "🔹 **Plan_Type:** `Pro`, `UltraPro`\n"
                 "⏱️ **Time Format:**\n"
                 "• `1 min` → minutes\n"
@@ -97,7 +97,7 @@ async def add_premium(client, message):
                 "• `1 day` → days\n"
                 "• `1 month` → months\n"
                 "• `1 year` → year\n\n"
-                "✅ **Example:** `/addpremium 6318135266 Pro 1 month`",
+                "📃 **Example:** `/addpremium 6318135266 Pro 1 month`",
                 quote=True
             )
 
@@ -146,7 +146,7 @@ async def add_premium(client, message):
     else:
         if len(message.command) < 3:
             return await message.reply_text(
-                "📌 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
+                "📜 **Usage:** `/addpremium user_id Plan_Type time`\n\n"
                 "🔹 **Plan_Type:** `Pro`, `UltraPro`\n"
                 "⏱️ **Time Format:**\n"
                 "• `1 min` → minutes\n"
@@ -154,7 +154,7 @@ async def add_premium(client, message):
                 "• `1 day` → days\n"
                 "• `1 month` → months\n"
                 "• `1 year` → year\n\n"
-                "✅ **Example:** `/addpremium 6318135266 Pro 1 month`",
+                "📃 **Example:** `/addpremium 6318135266 Pro 1 month`",
                 quote=True
             )
 
@@ -243,7 +243,7 @@ async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
             f"🚫 Use this command to ban any user from the bot.\n\n"
-            f"📌 Usage:\n\n"
+            f"📜 Usage:\n\n"
             f"`/ban user_id ban_duration ban_reason`\n\n"
             f"🧪 Example:\n"
             f"`/ban 1234567 28 You misused me.`\n\n"
@@ -282,7 +282,7 @@ async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
             f"🔓 Use this command to unban any user.\n\n"
-            f"📌 Usage:\n\n"
+            f"📜 Usage:\n\n"
             f"`/unban user_id`\n\n"
             f"🧪 Example:\n"
             f"`/unban 1234567`\n\n"
