@@ -139,7 +139,7 @@ async def progress_for_pyrogram(current, total, ud_type, message, start):
         footer = random.choice(THEMED_FOOTERS.get(speed_icon, ["╰━━━━━━━━━━━━━━━━➣"]))
 
         progress_template = f"""<b>
-╭━━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━➣
+╭━━━❰ᴘʀᴏɢʀᴇss ʙᴀʀ❱━━➣
 
 ┃    🗂️ ᴄᴏᴍᴘʟᴇᴛᴇᴅ: {{1}}
 
